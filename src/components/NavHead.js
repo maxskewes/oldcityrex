@@ -1,84 +1,85 @@
 import React, { useState } from 'react';
-import { Link, Box, Flex, Text, Button, Stack } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Text,
+  Stack,
+  Container,
+  SimpleGrid,
+  Heading,
+} from '@chakra-ui/react';
 import LogoHead from './LogoHead';
-import { AiOutlineMenu } from 'react-icons/ai';
-import { GrClose } from 'react-icons/gr';
-import { IoIosCart } from 'react-icons/io';
 import navigation from '../navigation';
+import OCLink from './OCLink';
 
 const NavHead = props => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
-
-  return (
-    <NavBarContainer {...props}>
-      <LogoHead />
-      <MenuToggle toggle={toggle} isOpen={isOpen} />
-      <MenuLinks isOpen={isOpen} />
-    </NavBarContainer>
-  );
-};
-
-const MenuToggle = ({ toggle, isOpen }) => {
-  return (
-    <Box display={{ base: 'block', md: 'none' }} onClick={toggle}>
-      {isOpen ? <GrClose /> : <AiOutlineMenu />}
-    </Box>
-  );
-};
-
-const MenuItem = ({ children, to = '/', ...rest }) => {
-  return (
-    <Link href={to}>
-      <Text display="block" {...rest}>
-        {children}
-      </Text>
-    </Link>
-  );
-};
-
-const MenuLinks = ({ isOpen }) => {
   return (
     <Box
-      display={{ base: isOpen ? 'block' : 'none', md: 'block' }}
-      flexBasis={{ base: '100%', md: 'auto' }}
+      display="flex"
+      direction="row"
+      bg="black"
+      h={[150, 150, 120, 73, 86]}
+      pl={[0, 0, 0, 0, 4]}
     >
-      <Stack
-        spacing={8}
-        align="center"
-        justify={['center', 'space-between', 'flex-end', 'flex-end']}
-        direction={['column', 'row', 'row', 'row']}
-        pt={[4, 4, 0, 0]}
-      >
+      <LogoHead />
+      <LinkDivSm>
         {navigation.map(nav => {
-          return (
-            <MenuItem to={nav.route} key={nav.name}>
-              <Text display="block">{nav.title}</Text>
-            </MenuItem>
-          );
+          return <NavItem to={nav.route} linkName={nav.title} key={nav.title} />;
         })}
-        <IoIosCart />
-      </Stack>
+      </LinkDivSm>
     </Box>
   );
 };
 
-const NavBarContainer = ({ children, ...props }) => {
+const NavItem = ({ linkName, to = '/', ...rest }) => {
+  return (
+    <OCLink to={to} key={rest.key}>
+      <Heading
+        color="grey"
+        fontSize={[18, 24, 32, 32, 40]}
+        minW={[]}
+        p={.5}
+        color="grey"
+        fontWeight={400}
+        textTransform="uppercase"
+        {...rest}
+      >
+        {linkName}
+      </Heading>
+    </OCLink>
+  );
+};
+
+const LinkDivLg = ({ children, ...props }) => {
   return (
     <Flex
-      as="nav"
-      align="center"
+      // float="right"
+      // align="right"
       justify="space-between"
-      wrap="wrap"
-      w="100%"
-      h={[100, 100, 150, 150]}
-      pr={8}
-      bg={['yellow', 'orange', 'beige', 'purple']}
-      color={'gray'}
+      h={[100, 100, 100, 100]}
+      p={4}
       {...props}
+      flexGrow={1}
+      flexWrap="wrap"
     >
       {children}
     </Flex>
+  );
+};
+
+const LinkDivSm = ({ children, ...props }) => {
+  return (
+    <div
+    displa='flex'
+      // float="right"
+      align="right"
+justify='center'
+      h={[100, 100, 100, 100]}
+      p={6}
+      {...props}
+    >
+      {children}
+    </div>
   );
 };
 

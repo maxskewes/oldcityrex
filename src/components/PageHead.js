@@ -1,7 +1,7 @@
 import React from 'react';
 import { Center, Text } from '@chakra-ui/react';
 
-function PageHead({ pageHeading }) {
+function PageHead({ pageHeading, children }) {
   return (
     <Center
       bgImage="url('/images/bricks-bg.jpg')"
@@ -10,19 +10,23 @@ function PageHead({ pageHeading }) {
       bgSize="cover"
       minH={[100, 100, 200]}
       w="full"
-      alignItems="center"
+      flexDirection='column'
     >
       <Text
-        fontFamily="cityburn"
-        fontSize="100px"
-        textTransform="lowercase"
-        letterSpacing={10}
-        color="#9e0000"
-        height="100%"
+        fontFamily='cityburn, Lacquer, Allerta Stencil, Metal Mania, Work Sans, Roboto'
+        fontSize={[50, 60, 80, 100, 110]}
+        textTransform="uppercase"
+        letterSpacing={[4, 8]}
+        color="red"
         textAlign="center"
+        opacity="80%"
+        lineHeight='.8'
+        pt={8}
+        pb={4}
       >
         {pageHeading}
       </Text>
+      {children}
     </Center>
   );
 }
