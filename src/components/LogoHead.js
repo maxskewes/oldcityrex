@@ -1,17 +1,22 @@
-import { LinkBox, Image } from '@chakra-ui/react';
+import { LinkBox, Image, LinkOverlay } from '@chakra-ui/react';
 import React from 'react';
 
 function LogoHead() {
   return (
-    <LinkBox href="/">
+    <LinkBox h='auto' w='auto'>
+      <LinkOverlay href='/' h='auto' w='auto'>
       <Image
-        boxSize="20px"
-        bgImage="url('/images/ocr-logo.jpg')"
+        h={[150, 150, 200]}
+        minH={[150, 150, 200]}
+        w={[136, 136, 182]}
+        minW={[136, 136, 182]}
+        src='/images/ocr-logo.png'
         alt="Old City Records Logo"
-        objectFit="scale-down"
+        objectFit="fill"
         overflow="visible"
         backgroundRepeat="no-repeat"
       />
+      </LinkOverlay>
     </LinkBox>
   );
 }
