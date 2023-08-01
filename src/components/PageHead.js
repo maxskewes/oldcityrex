@@ -21,7 +21,7 @@ function PageHead({ pageHeading, children }) {
         textAlign="center"
         opacity="80%"
         lineHeight='.8'
-        pt={8}
+        pt={[9, null, 16, null]}
         pb={4}
       >
         {pageHeading}

@@ -8,11 +8,9 @@ import NavFoot from './components/NavFoot';
 import Landing from './routes/Landing';
 import Releases from './routes/Releases';
 import Listen from './routes/Listen';
-import Shows from './routes/Shows';
 import Merch from './routes/Merch';
 import Contact from './routes/Contact';
-import Cart from './routes/Cart';
-import PHnav from './components/PHnav';
+import { Cart } from './components/Cart/index.tsx';
 
 function App() {
   return (
@@ -23,7 +21,6 @@ function App() {
         <Route path="/" exact element={<Landing />} />
         <Route path="releases" element={<Releases />} />
         <Route path="listen" element={<Listen />} />
-        <Route path="shows" element={<Shows />} />
         <Route path="merch" element={<Merch />} />
         <Route path="contact" element={<Contact />} />
         <Route path="cart" element={<Cart />} />

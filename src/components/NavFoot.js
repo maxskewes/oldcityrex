@@ -12,12 +12,12 @@ const NavFoot = () => {
       alignItems="center"
       justifyContent="center"
       bgGradient="linear(to-b, black, #9e0000)"
-      color="black"
+      color="grey"
       pt={20}
       pb={50}
     >
       <VStack>
-        <HStack alignContent="center" spacing={10} pb={12} color="darkest_grey">
+        <HStack alignContent="center" spacing={10} pb={12} color="grey">
           <a href="https://www.facebook.com/oldcityrex/">
             <RiFacebookBoxFill fontSize={40} p={14} />
           </a>
@@ -28,10 +28,10 @@ const NavFoot = () => {
         <Text fontSize={24} textTransform="lowercase">
           nick@old-city-records.com
         </Text>
-        <Text fontSize={40} textTransform="uppercase">
+        <Text fontSize={32} textTransform="uppercase">
           Old City Records
         </Text>
-        <Text fontSize={40} textTransform="uppercase">
+        <Text fontSize={32} textTransform="uppercase">
           Portland, OR
         </Text>
       </VStack>

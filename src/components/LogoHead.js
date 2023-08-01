@@ -3,17 +3,16 @@ import React from 'react';
 
 function LogoHead() {
   return (
-    <LinkBox h='auto' w='auto'>
+    <LinkBox mx={[0, null, null, 4]}>
       <LinkOverlay href='/' h='auto' w='auto'>
       <Image
-        h={[150, 150, 200]}
-        minH={[150, 150, 200]}
-        w={[136, 136, 182]}
-        minW={[136, 136, 182]}
-        src='/images/ocr-logo.png'
+      // postition={['static', null, 'sticky']}
+
+        w={['100px', '120px', '128px', '136px', '180px']}
+        minW={['100px', '120px', '128px', '136px', '180px']}
+        src='/images/ocr-logo.jpg'
         alt="Old City Records Logo"
         objectFit="fill"
-        overflow="visible"
         backgroundRepeat="no-repeat"
       />
       </LinkOverlay>
